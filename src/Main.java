@@ -34,6 +34,7 @@ public class Main {
 
         zhou.describe();
         padma.describe();
+        System.out.println();
 
         // Сравнение студентов внутри факультета
         System.out.println("Сравнение студентов внутри факультетов:");
@@ -42,6 +43,7 @@ public class Main {
         Slytherin.compare(draco, goyle);
         Hufflepuff.compare(zacharias, cedric);
         Ravenclaw.compare(zhou, padma);
+        System.out.println();
 
         // Сравнение студентов по магической силе между факультетами
         System.out.println("Сравнение студентов по магической силе:");
