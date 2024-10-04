@@ -1,5 +1,5 @@
 class Hogwarts {
-    protected String name;
+    private String name;
     private int magicPower;
     private int transgressionDistance;
 
@@ -10,17 +10,26 @@ class Hogwarts {
         this.transgressionDistance = transgressionDistance;
     }
 
-    // Геттеры
+    // Геттеры и сеттеры
     public String getName() {
         return name;
     }
+
 
     public int getMagicPower() {
         return magicPower;
     }
 
+    public void setMagicPower(int magicPower) {
+        this.magicPower = magicPower;
+    }
+
     public int getTransgressionDistance() {
         return transgressionDistance;
+    }
+
+    public void setTransgressionDistance(int transgressionDistance) {
+        this.transgressionDistance = transgressionDistance;
     }
 
     // Метод, для вывода на экран описание студента
@@ -29,15 +38,19 @@ class Hogwarts {
                 ", Расстояние трансгрессии: " + getTransgressionDistance());
     }
 
-    // Метод для сравнения учеников школы
-    public static void compareStudent(Hogwarts student1, Hogwarts student2) {
+    // Метод для сравнения магической силы учеников школы
+    public static void compareMagicPower(Hogwarts student1, Hogwarts student2) {
         if (student1 == null || student2 == null) {
             System.out.println("Один из студентов не существует.");
             return;
         }
-        if (student1.getMagicPower() > student2.getMagicPower()) {
+
+        int power1 = student1.getMagicPower() + student1.getTransgressionDistance();
+        int power2 = student2.getMagicPower() + student2.getTransgressionDistance();
+
+        if (power1 > power2) {
             System.out.println(student1.getName() + " обладает большей мощностью магии, чем " + student2.getName());
-        } else if (student1.getMagicPower() < student2.getMagicPower()) {
+        } else if (power1 < power2) {
             System.out.println(student2.getName() + " обладает большей мощностью магии, чем " + student1.getName());
         } else {
             System.out.println("Оба студента обладают равной мощностью магии.");
@@ -51,6 +64,7 @@ class Gryffindor extends Hogwarts {
     private int honor; // Честь
     private int nobility; // Благородство
 
+    // Конструктор
     public Gryffindor(String name, int magicPower, int transgressionDistance,
                       int bravery, int honor, int nobility) {
         super(name, magicPower, transgressionDistance);
@@ -59,12 +73,13 @@ class Gryffindor extends Hogwarts {
         this.nobility = nobility;
     }
 
+    // Геттеры и сеттеры
     public int getBravery() {
         return bravery;
     }
 
-    public void setBravery(int bravery) {
-        this.bravery = bravery;
+    public int setBravery() {
+        return bravery;
     }
 
     public int getHonor() {
@@ -84,7 +99,6 @@ class Gryffindor extends Hogwarts {
     }
 
     // Описание учеников факультета
-    @Override
     public void describe() {
         super.describe();
         System.out.println("Храбрость: " + getBravery() + ", Честь: " + getHonor() +
@@ -111,6 +125,7 @@ class Slytherin extends Hogwarts {
     private int determination; // Решительность
     private int ambition; // Амбиция
 
+    // Конструктор
     public Slytherin(String name, int magicPower, int transgressionDistance,
                      int cunning, int determination, int ambition) {
         super(name, magicPower, transgressionDistance);
@@ -119,6 +134,7 @@ class Slytherin extends Hogwarts {
         this.ambition = ambition;
     }
 
+    // Геттеры и сеттеры
     public int getCunning() {
         return cunning;
     }
@@ -144,7 +160,6 @@ class Slytherin extends Hogwarts {
     }
 
     // Описание учеников факультета
-    @Override
     public void describe() {
         super.describe();
         System.out.println("Хитрость: " + getCunning() + ", Решительность: " + getDetermination() +
@@ -171,6 +186,7 @@ class Hufflepuff extends Hogwarts {
     private int honesty; // Честность
     private int workEthic; // Трудолюбие
 
+    // Конструктор
     public Hufflepuff(String name, int magicPower, int transgressionDistance,
                       int loyalty, int honesty, int workEthic) {
         super(name, magicPower, transgressionDistance);
@@ -179,6 +195,7 @@ class Hufflepuff extends Hogwarts {
         this.workEthic = workEthic;
     }
 
+    // Геттеры и сеттеры
     public int getLoyalty() {
         return loyalty;
     }
@@ -204,7 +221,6 @@ class Hufflepuff extends Hogwarts {
     }
 
     // Описание учеников факультета
-    @Override
     public void describe() {
         super.describe();
         System.out.println("Верность: " + getLoyalty() + ", Честность: " + getHonesty() +
@@ -231,6 +247,7 @@ class Ravenclaw extends Hogwarts {
     private int wit; // Остроумие
     private int creativity; // Творчество
 
+    // Конструктор
     public Ravenclaw(String name, int magicPower, int transgressionDistance, int wisdom,
                      int wit, int creativity) {
         super(name, magicPower, transgressionDistance);
@@ -239,6 +256,7 @@ class Ravenclaw extends Hogwarts {
         this.creativity = creativity;
     }
 
+    // Геттеры и сеттеры
     public int getWisdom() {
         return wisdom;
     }
